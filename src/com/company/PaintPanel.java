@@ -23,7 +23,12 @@ public class PaintPanel extends JPanel
         inset = getInsets();
         for(int i = 0; i < 10; i++)
         {
+            x1 = randomNumber.nextInt(width - inset.left);
+            x2 = randomNumber.nextInt(width - inset.left);
+            y1 = randomNumber.nextInt(height - inset.bottom);
+            y2 = randomNumber.nextInt(height - inset.bottom);
 
+            graphics.drawLine(x1, y1, x2, y2);
         }
     }
 }

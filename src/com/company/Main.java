@@ -20,5 +20,23 @@ public class Main extends JApplet
                 new SwingDemo();
             }
         });
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new PaintDemo();
+            }
+        });
+        try
+        {
+            SwingUtilities.invokeAndWait(new Runnable() {
+                @Override
+                public void run() {
+                    new ImageDemo();
+                }
+            });
+        }catch(Exception e)
+        {
+            System.out.println(e);
+        }
     }
 }
