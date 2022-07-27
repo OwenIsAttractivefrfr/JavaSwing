@@ -5,8 +5,7 @@ import java.awt.*;
 
 public class Main extends JApplet
 {
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
@@ -26,17 +25,8 @@ public class Main extends JApplet
                 new PaintDemo();
             }
         });
-        try
-        {
-            SwingUtilities.invokeAndWait(new Runnable() {
-                @Override
-                public void run() {
-                    new ImageDemo();
-                }
-            });
-        }catch(Exception e)
-        {
-            System.out.println(e);
-        }
+
+        ImageDemo imagedemo = new ImageDemo();
+        imagedemo.init();
     }
 }
