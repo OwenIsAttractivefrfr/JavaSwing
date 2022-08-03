@@ -1,37 +1,69 @@
 package com.company;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
-//we will get back to this need to review more
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 
-/*
-<applet code = "ImageDemo" width = 1920 height = 1080>
-</applet>
- */
-
-public class ImageDemo extends JApplet
+public class ImageDemo extends JFrame
 {
+    JFrame jframe;
+    JLabel jlabel;
+    ImageIcon imageicon;
+    ImageIcon lebronjames2;
+    ImageIcon tenz;
+    ImageIcon kevinknox;
+    JButton jbutton;
+    JButton lebronjames2button;
+    JButton tenzbutton;
+    JButton kevinknoxbutton;
 
-    public void init()
+    public ImageDemo()
     {
-        try {
-            SwingUtilities.invokeAndWait(new Runnable() {
-                @Override
-                public void run() {
-                    makeGui();
-                }
-            });
-        } catch (Exception e){
-            System.out.println(e);
+        jframe = new JFrame("Lebron James");
+        jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        jframe.setLayout(new FlowLayout());
+        try
+        {
+            imageicon = new ImageIcon("./src/com/company/images/Lebron_2.jpg");
+            lebronjames2 = new ImageIcon("./src/com/company/images/Lebron_3.jpg");
+            tenz = new ImageIcon("./src/com/company/images/Tenz.jpg");
+            kevinknox = new ImageIcon("./src/com/company/images/FortniteSuit.jpg");
+
+            jbutton = new JButton(imageicon);
+            jbutton.setActionCommand("Lebron James 1");
+            jbutton.setIcon(imageicon);
+//            jbutton.addActionListener(new ActionListener() {
+//                @Override
+//                public void actionPerformed(ActionEvent e) {
+//                    jlabel.setText("You selected Lebron James 1");
+//                }
+//            });
+            jframe.add(jbutton);
+
+            lebronjames2button = new JButton(lebronjames2);
+            lebronjames2button.setActionCommand("Lebron James 2");
+            lebronjames2button.setIcon(lebronjames2);
+            jframe.add(lebronjames2button);
+
+
+            tenzbutton = new JButton(tenz);
+            tenzbutton.setActionCommand("Tenz");
+            tenzbutton.setIcon(tenz);
+            jframe.add(tenzbutton);
+
+
+            kevinknoxbutton = new JButton(kevinknox);
+            kevinknoxbutton.setActionCommand("Kevin Knox");
+            kevinknoxbutton.setIcon(kevinknox);
+            jframe.add(kevinknoxbutton);
+
+
+        } catch(Exception e)
+        {
+            System.out.println("can not find image.");
         }
-    }
-
-
-    public void makeGui()
-    {
-        ImageIcon imageIcon = new ImageIcon("./imagesLebron_2.jpg");
-        JLabel jlabel = new JLabel("Lebron James", imageIcon, JLabel.CENTER);
-        add(jlabel);
+        jframe.pack();
+        jframe.setVisible(true);
     }
 }
